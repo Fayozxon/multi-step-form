@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+// core
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font: inherit;
+
+    &:focus {
+        outline: 2px dashed $clr-purple-200;
+        outline-offset: 5px;
+    }
+}
+
+body {
+    font-family: Ubuntu, sans-serif;
+    color: $clr-dk-blue;
+    background: $clr-bg-100;
+    font-size: $fs-md;
+}
+
+// button
+.btn {
+    padding: 17px 30px;
+    border: none;
+    border-radius: 7px;
+    background-color: $clr-dk-blue;
+    color: $clr-white;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 200ms ease-in;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &.btn-inline {
+        padding: 0;
+        background: transparent;
+        color: $clr-grey;
+
+        &:hover {
+            color: $clr-dk-blue;
+            opacity: 1;
+        }
+    }
+}
+
+// form
+.form {
+    &-label {
+        position: relative;
+        display: block;
+        font-size: $fs-sm;
+        color: $clr-dk-blue;
+        font-weight: 500;
+
+        .form-input {
+            margin-top: 10px;
+        }
+
+        .error-msg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: $clr-red;
+            opacity: 0;
+            transition: $ts-200;
+        }
+    }
+
+    &-input {
+        display: block;
+        width: 100%;
+        font-size: $fs-md;
+        padding: 15px 20px;
+        border: 1px solid $clr-lt-grey;
+        border-radius: 7px;
+        outline: none;
+        transition: $ts-200;
+        color: $clr-dk-blue;
+        font-weight: 700;
+
+        &::placeholder {
+            color: $clr-grey;
+            font-weight: 500;
+        }
+
+        &:focus {
+            border-color: $clr-purple-200;
+        }
+
+        &.error {
+            border-color: $clr-red;
+            
+            & + .error-msg {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+@mixin media-sm {
+    @media only screen and (max-width: 58.125em) {
+        @content;
+    }
+}
