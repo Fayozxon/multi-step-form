@@ -10,7 +10,7 @@ export default {
   components: { FormSidebar, FormStepOne, FormStepTwo, FormStepThree, FormStepFour, FormSuccessMsg },
   data() {
     return {
-        activeTab: 2
+        activeTab: 3
     }
   },
   methods: {
@@ -84,6 +84,7 @@ export default {
 
       @include media-sm {
         position: static;
+        gap: 25px;
       }
   
       &__btns {
@@ -100,6 +101,7 @@ export default {
           background: $clr-white;
           padding: 16px;
           box-shadow: 0 -15px 30px rgba(0,0,0,0.04);
+          z-index: 10;
         }
       }
   

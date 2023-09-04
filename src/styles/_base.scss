@@ -6,6 +6,7 @@
     padding: 0;
     box-sizing: border-box;
     font: inherit;
+    scroll-behavior: smooth;
 
     &:focus {
         outline: 2px dashed $clr-purple-200;
@@ -33,6 +34,10 @@ body {
 
     &:hover {
         opacity: 0.8;
+    }
+
+    &.btn-accent {
+        background: $clr-purple-200;
     }
 
     &.btn-inline {
@@ -96,6 +101,49 @@ body {
             
             & + .error-msg {
                 opacity: 1;
+            }
+        }
+    }
+
+    &-toggle {
+        position: relative;
+        width: 38px;
+        height: 20px;
+
+        input[type="checkbox"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            cursor: pointer;
+            z-index: 2;
+
+            &:checked + .custom::before {
+                left: 22px;
+            }
+        }
+        .custom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: inline-block;
+            background: $clr-dk-blue;
+            border-radius: 100vw;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 4px;
+                left: 4px;
+                width: 12px;
+                height: 12px;
+                background: $clr-white;
+                border-radius: 50%;
+                transition: $ts-200;
             }
         }
     }

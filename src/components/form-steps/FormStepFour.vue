@@ -18,7 +18,7 @@ export default {
     <!-- buttons -->
     <div class="form-step__btns">
       <button type="button" class="btn btn-inline" @click="$emit('setActiveTab', 3)">Go back</button>
-      <button class="btn" type="button" @click="$emit('setActiveTab', 5)">Next step</button>
+      <button class="btn btn-accent" type="submit" @submit.prevent @click="$emit('setActiveTab', 5)">Confirm</button>
     </div>
   </div>
 
