@@ -54,7 +54,7 @@ export default {
     <div class="form-step__toggle">
       <h3 class="option" :class="{active: !selectedYearlyPay}">Monthly</h3>
       <div class="form-toggle" @click="selectedYearlyPay = !selectedYearlyPay">
-        <input type="checkbox" checked>
+        <input type="checkbox" v-model="selectedYearlyPay">
         <span class="custom"></span>
       </div>
       <h3 class="option" :class="{active: selectedYearlyPay}">Yearly</h3>
@@ -93,6 +93,10 @@ export default {
         height: 175px;
         transition: $ts-200;
         cursor: pointer;
+
+        &:hover {
+          border-color: $clr-purple-200;
+        }
 
         @include media-sm {
           flex-direction: row;

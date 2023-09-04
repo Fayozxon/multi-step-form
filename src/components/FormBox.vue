@@ -10,7 +10,7 @@ export default {
   components: { FormSidebar, FormStepOne, FormStepTwo, FormStepThree, FormStepFour, FormSuccessMsg },
   data() {
     return {
-        activeTab: 3
+        activeTab: 4
     }
   },
   methods: {

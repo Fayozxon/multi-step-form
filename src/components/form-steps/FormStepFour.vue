@@ -14,7 +14,7 @@ export default {
         Double-check everything looks OK before confirming.
       </p>
     </div>
-
+    
     <!-- buttons -->
     <div class="form-step__btns">
       <button type="button" class="btn btn-inline" @click="$emit('setActiveTab', 3)">Go back</button>
