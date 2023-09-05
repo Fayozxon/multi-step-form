@@ -5,6 +5,33 @@ export default {
       selectedPlan: 1,
       selectedYearlyPay: true
     }
+  },
+  methods: {
+    nextStep() {
+      this.$emit('setActiveTab', 3);
+
+      let plan;
+      let price;
+      let planTime = 'monthly';
+
+      if (this.selectedPlan == 1) {
+        plan = 'arcade';
+        price = 9;
+      } else if (this.selectedPlan == 2) {
+        plan = 'advanced';
+        price = 12;
+      } else {
+        plan = 'pro';
+        price = 15;
+      }
+
+      if (this.selectedYearlyPay) {
+        planTime = 'yearly';
+        price *= 10;
+      }
+
+      this.$emit('selectPlan', plan, price, planTime);
+    }
   }
 }
 </script>
@@ -62,7 +89,7 @@ export default {
     <!-- buttons -->
     <div class="form-step__btns">
       <button type="button" class="btn btn-inline" @click="$emit('setActiveTab', 1)">Go back</button>
-      <button class="btn" type="button" @click="$emit('setActiveTab', 3)">Next step</button>
+      <button class="btn" type="button" @click="nextStep">Next step</button>
     </div>
   </div>
 

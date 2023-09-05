@@ -10,12 +10,24 @@ export default {
   components: { FormSidebar, FormStepOne, FormStepTwo, FormStepThree, FormStepFour, FormSuccessMsg },
   data() {
     return {
-        activeTab: 4
+        activeTab: 2,
+        selectedPlan: 'arcade',
+        planPrice: '90',
+        selectedTime: 'yearly',
+        selectedAddOns: [
+          { title: 'online service', price: 10 },
+          { title: 'larger storage', price: 20 },
+        ]
     }
   },
   methods: {
     setActiveTab(tabNum) {
         this.activeTab = tabNum;
+    },
+    selectPlan(plan, price, planTime) {
+      this.selectPlan = plan;
+      this.planPrice = price;
+      this.selectedTime = planTime;
     }
   }
 }
@@ -30,9 +42,15 @@ export default {
         <div class="form-box__steps">
 
           <FormStepOne @setActiveTab="setActiveTab" v-show="activeTab == 1"></FormStepOne>
-          <FormStepTwo @setActiveTab="setActiveTab" v-show="activeTab == 2"></FormStepTwo>
+          <FormStepTwo @setActiveTab="setActiveTab" @selectPlan="selectPlan" v-show="activeTab == 2"></FormStepTwo>
           <FormStepThree @setActiveTab="setActiveTab" v-show="activeTab == 3"></FormStepThree>
-          <FormStepFour @setActiveTab="setActiveTab" v-show="activeTab == 4"></FormStepFour>
+          <FormStepFour
+            @setActiveTab="setActiveTab"
+            v-show="activeTab == 4"
+            :selectedPlan="selectedPlan"
+            :planPrice="planPrice"
+            :selectedTime="selectedTime"
+          ></FormStepFour>
           <FormSuccessMsg v-show="activeTab == 5"></FormSuccessMsg>
           
         </div>
