@@ -10,7 +10,7 @@ export default {
   components: { FormSidebar, FormStepOne, FormStepTwo, FormStepThree, FormStepFour, FormSuccessMsg },
   data() {
     return {
-        activeTab: 2,
+        activeTab: 1,
         selectedPlan: 'arcade',
         planPrice: '90',
         selectedTime: 'yearly',
